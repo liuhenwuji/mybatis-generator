@@ -17,7 +17,7 @@ public class GenMain {
     public static void main(String[] args) {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;//如果已经生成过了是否进行覆盖
-        String genCfg = "/generatorConfigHrsaas.xml";//配置文件的路径:默认放到src下面
+        String genCfg = "/generatorConfigHrsun.xml";//配置文件的路径:默认放到src下面
         URL url = GenMain.class.getResource(genCfg);
         String file = url.getFile();
         File configFile = new File(file);
