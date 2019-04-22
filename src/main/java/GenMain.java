@@ -4,6 +4,7 @@ import org.mybatis.generator.config.xml.ConfigurationParser;
 import org.mybatis.generator.exception.InvalidConfigurationException;
 import org.mybatis.generator.exception.XMLParserException;
 import org.mybatis.generator.internal.DefaultShellCallback;
+import org.mybatis.generator.plugins.LombokPlugin;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +17,7 @@ public class GenMain {
     public static void main(String[] args) {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;//如果已经生成过了是否进行覆盖
-        String genCfg = "/generatorConfigSGS.xml";//配置文件的路径:默认放到src下面
+        String genCfg = "/generatorConfigHrsaas.xml";//配置文件的路径:默认放到src下面
         URL url = GenMain.class.getResource(genCfg);
         String file = url.getFile();
         File configFile = new File(file);

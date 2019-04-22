@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 该配置文件说明插件需要如何生成，以及生成对应的包名，路径等信息。
+      还有重要的就是我们要生成的实体类所对应的的表或者试图 -->
+<generatorConfiguration>
+    <properties resource="mybatis_generator_hrsun.properties"/>
+
+
+    <context id="MBG" targetRuntime="MyBatis3" defaultModelType="conditional">
+
+        <!-- 注意以下标签的顺序:property*,plugin*,commentGenerator?,jdbcConnection,
+                javaTypeResolver?,javaModelGenerator,sqlMapGenerator?,
+                javaClientGenerator?,table+ -->
+        <property name="useActualColumnNames" value="false" />
+        <!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>-->
+        <!-- 这个插件给由MBG生成的Java模型对象增加了equals和hashCode方法 -->
+        <!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>-->
+        <plugin type="org.mybatis.generator.plugins.LombokPlugin" >
+            <property name="hasLombok" value="true"/>
+        </plugin>
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 不希望生成的注释中包含时间戳 -->
+            <property name="suppressDate" value="true"/>
+            <!-- 是否  自动为每一个生成的类创建一个构造方法-->
+            <property name="constructorBased" value="false"/>
+        </commentGenerator>
+        <!-- 数据库连接 -->
+        <jdbcConnection
+                driverClass="${jdbc_driver}"
+                connectionURL="${jdbc_url}"
+                userId="${jdbc_username}"
+                password="${jdbc_password}">
+        </jdbcConnection>
+        <!-- 指定生成的类型为java类型，避免数据库中number等类型字段 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成model模型，对应的包，存放位置可以指定具体的路径,如/ProjectName/src，也可以使用MAVEN来自动生成 -->
+        <javaModelGenerator targetPackage="${modelPackage}" targetProject="${targetProject}">
+            <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
+            <!--<property name="enableSubPackages" value="true"/>-->
+            <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--对应的xml mapper文件  -->
+        <sqlMapGenerator targetPackage="${sqlMapperPackage}" targetProject="${targetProject}">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 对应的dao接口 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${daoMapperPackage}" targetProject="${targetProject}">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 表名对应生成的实体 -->
+        <table tableName="ABNORMAL_ATTEND" domainObjectName="abnormal_attend"/>
+        <table tableName="ABNORMAL_STAFF_REF" domainObjectName="abnormal_staff_ref"/>
+        <table tableName="ACCESSORY" domainObjectName="accessory"/>
+        <table tableName="ACCOUNT_FUN_REF" domainObjectName="account_fun_ref"/>
+        <table tableName="ACCOUNT_SETTING" domainObjectName="account_setting"/>
+        <table tableName="ACCUMU_EARLY_MINUTE_CASCADE" domainObjectName="accumu_early_minute_cascade"/>
+        <table tableName="ACCUMU_LATIVE_MINUTE_CASCADE" domainObjectName="accumu_lative_minute_cascade"/>
+        <table tableName="AFFAIRS_LEAVE_SETTING" domainObjectName="affairs_leave_setting"/>
+        <table tableName="ANNUAL_LEAVE_HISTORY" domainObjectName="annual_leave_history"/>
+        <table tableName="ANNUAL_RULE" domainObjectName="annual_rule"/>
+        <table tableName="ANNUAL_RULE_TEMPLATE" domainObjectName="annual_rule_template"/>
+        <table tableName="APPLY" domainObjectName="apply"/>
+        <table tableName="APPLY_ARCHIVE" domainObjectName="apply_archive"/>
+        <table tableName="APPLY_DEAL_LOG" domainObjectName="apply_deal_log"/>
+        <table tableName="APPLY_FLOW" domainObjectName="apply_flow"/>
+        <table tableName="APPLY_LEAVE_HISTORY" domainObjectName="apply_leave_history"/>
+        <table tableName="APPLY_TEMP" domainObjectName="apply_temp"/>
+        <table tableName="APPLY_WORK_REF" domainObjectName="apply_work_ref"/>
+        <table tableName="APPLY_WORK_REF_TEMP" domainObjectName="apply_work_ref_temp"/>
+        <table tableName="APPROVAL_CONFIG" domainObjectName="approval_config"/>
+        <table tableName="APPROVAL_CONFIG_TEMP" domainObjectName="approval_config_temp"/>
+        <table tableName="APPROVAL_FIELD" domainObjectName="approval_field"/>
+        <table tableName="APPROVAL_FIELD_TEMPLATE" domainObjectName="approval_field_template"/>
+        <table tableName="APPROVAL_FIELD_VALUE" domainObjectName="approval_field_value"/>
+        <table tableName="APPROVAL_FLOW" domainObjectName="approval_flow"/>
+        <table tableName="APPROVAL_FLOW_TEMP" domainObjectName="approval_flow_temp"/>
+        <table tableName="APPROVAL_MAIL" domainObjectName="approval_mail"/>
+        <table tableName="APPROVAL_STAFF_REF" domainObjectName="approval_staff_ref"/>
+        <table tableName="APPROVAL_TYPE" domainObjectName="approval_type"/>
+        <table tableName="APPROVAL_VALUE" domainObjectName="approval_value"/>
+        <table tableName="ATTEND" domainObjectName="attend"/>
+        <table tableName="ATTEND_HOLIDAY" domainObjectName="attend_holiday"/>
+        <table tableName="ATTEND_LOCATION" domainObjectName="attend_location"/>
+        <table tableName="ATTEND_PERIOD" domainObjectName="attend_period"/>
+        <table tableName="ATTEND_REPORT" domainObjectName="attend_report"/>
+        <table tableName="ATTEND_REPORT_HISTORY" domainObjectName="attend_report_history"/>
+        <table tableName="ATTEND_REPORT_TEMPLATE" domainObjectName="attend_report_template"/>
+        <table tableName="ATTEND_STAFF_REF" domainObjectName="attend_staff_ref"/>
+        <table tableName="ATTEND_TAG" domainObjectName="attend_tag"/>
+        <table tableName="ATTEND_WIFI" domainObjectName="attend_wifi"/>
+        <table tableName="BECOME_FULL" domainObjectName="become_full"/>
+        <table tableName="COMM_INSUR" domainObjectName="comm_insur"/>
+        <table tableName="COMPANY" domainObjectName="company"/>
+        <table tableName="CONSUMER_ORDER" domainObjectName="consumer_order"/>
+        <table tableName="CONTRACT" domainObjectName="contract"/>
+        <table tableName="CONTRACT_URL" domainObjectName="contract_url"/>
+        <table tableName="DEPT" domainObjectName="dept"/>
+        <table tableName="DEPT_LOG" domainObjectName="dept_log"/>
+        <table tableName="DEPT_SNAP" domainObjectName="dept_snap"/>
+        <table tableName="DURATION_CONVERT" domainObjectName="duration_convert"/>
+        <table tableName="DURATION_STAFF_REF" domainObjectName="duration_staff_ref"/>
+        <table tableName="EARLY_MINUTE_CASCADE" domainObjectName="early_minute_cascade"/>
+        <table tableName="EARLY_TIMES_CASCADE" domainObjectName="early_times_cascade"/>
+        <table tableName="EMOLUMENT" domainObjectName="emolument"/>
+        <table tableName="EMOLUMENT_FIELD" domainObjectName="emolument_field"/>
+        <table tableName="EMOLUMENT_FIELD_CONFIG" domainObjectName="emolument_field_config"/>
+        <table tableName="EMOLUMENT_FIELD_RELATION" domainObjectName="emolument_field_relation"/>
+        <table tableName="EMOLUMENT_RELEASE" domainObjectName="emolument_release"/>
+        <table tableName="EMOLUMENT_STAFF_REF" domainObjectName="emolument_staff_ref"/>
+        <table tableName="FUN_DEPT_REF" domainObjectName="fun_dept_ref"/>
+        <table tableName="FUN_PREM_MODULE_REF" domainObjectName="fun_prem_module_ref"/>
+        <table tableName="FUN_PREM_REF" domainObjectName="fun_prem_ref"/>
+        <table tableName="INTERVIEWER" domainObjectName="interviewer"/>
+        <table tableName="INTERVIEWER_FEEDBACK" domainObjectName="interviewer_feedback"/>
+        <table tableName="JP_POSITION" domainObjectName="jp_position"/>
+        <table tableName="LATE_MINUTE_CASCADE" domainObjectName="late_minute_cascade"/>
+        <table tableName="LATE_TIMES_CASCADE" domainObjectName="late_times_cascade"/>
+        <table tableName="LEAVE" domainObjectName="leave"/>
+        <table tableName="LEAVE_INFO" domainObjectName="leave_info"/>
+        <table tableName="LEAVE_INFO_REF" domainObjectName="leave_info_ref"/>
+        <table tableName="LEAVE_INFO_TEMPLATE" domainObjectName="leave_info_template"/>
+        <table tableName="LEAVE_OFFICE" domainObjectName="leave_office"/>
+        <table tableName="LEAVE_RATE_HISTORY" domainObjectName="leave_rate_history"/>
+        <table tableName="LEAVE_STAFF_REF" domainObjectName="leave_staff_ref"/>
+        <table tableName="LEAVE_STATISTICS" domainObjectName="leave_statistics"/>
+        <table tableName="LEAVE_TAG" domainObjectName="leave_tag"/>
+        <table tableName="LOG" domainObjectName="log"/>
+        <table tableName="MESSAGE" domainObjectName="message"/>
+        <table tableName="MESSAGE_LOG" domainObjectName="message_log"/>
+        <table tableName="MESSAGE_TO" domainObjectName="message_to"/>
+        <table tableName="NOPAY_SOCSEC_MONTH" domainObjectName="nopay_socsec_month"/>
+        <table tableName="NOTICE" domainObjectName="notice"/>
+        <table tableName="NOTICE_COMMENT" domainObjectName="notice_comment"/>
+        <table tableName="NOTICE_STAFFREAD_REF" domainObjectName="notice_staffread_ref"/>
+        <table tableName="NOTICE_STAFF_REF" domainObjectName="notice_staff_ref"/>
+        <table tableName="OPTION_CONFIG" domainObjectName="option_config"/>
+        <table tableName="OVERTIME_RULE" domainObjectName="overtime_rule"/>
+        <table tableName="PLAN_REF" domainObjectName="plan_ref"/>
+        <table tableName="POSITION" domainObjectName="position"/>
+        <table tableName="POSITION_PROFILE_REF" domainObjectName="position_profile_ref"/>
+        <table tableName="PROJECT_MANAGE" domainObjectName="project_manage"/>
+        <table tableName="PUNCH_CARD_DEVICE" domainObjectName="punch_card_device"/>
+        <table tableName="PUNCH_CARD_LOG" domainObjectName="punch_card_log"/>
+        <table tableName="PUNCH_LOG" domainObjectName="punch_log"/>
+        <table tableName="PUNCH_RULE" domainObjectName="punch_rule"/>
+        <table tableName="PUSH_MESSAGE" domainObjectName="push_message"/>
+        <table tableName="RECORD_PROJECT_REF" domainObjectName="record_project_ref"/>
+        <table tableName="RESUME" domainObjectName="resume"/>
+        <table tableName="RESUME_DETAIL" domainObjectName="resume_detail"/>
+        <table tableName="ROLE" domainObjectName="role"/>
+        <table tableName="ROLE_ACCOUNT_REF" domainObjectName="role_account_ref"/>
+        <table tableName="SALARY" domainObjectName="salary"/>
+        <table tableName="SALARY_ADJUST" domainObjectName="salary_adjust"/>
+        <table tableName="SALARY_CONFIG" domainObjectName="salary_config"/>
+        <table tableName="SALARY_REPORT" domainObjectName="salary_report"/>
+        <table tableName="SALARY_SETTING" domainObjectName="salary_setting"/>
+        <table tableName="SHIFT_REPORTER" domainObjectName="shift_reporter"/>
+        <table tableName="SOCIAL_SECURITY" domainObjectName="social_security"/>
+        <table tableName="SOCIAL_SECURITY_REPORT" domainObjectName="social_security_report"/>
+        <table tableName="SPECIAL_DEDUCTION" domainObjectName="special_deduction"/>
+        <table tableName="STAFF" domainObjectName="staff"/>
+        <table tableName="STAFF_CHILD" domainObjectName="staff_child"/>
+        <table tableName="STAFF_COMMON" domainObjectName="staff_common"/>
+        <table tableName="STAFF_CONFIG" domainObjectName="staff_config"/>
+        <table tableName="STAFF_CONTACT" domainObjectName="staff_contact"/>
+        <table tableName="STAFF_FIELD" domainObjectName="staff_field"/>
+        <table tableName="STAFF_FIELD_CONFIG" domainObjectName="staff_field_config"/>
+        <table tableName="STAFF_FIELD_VALUE" domainObjectName="staff_field_value"/>
+        <table tableName="STAFF_INFO" domainObjectName="staff_info"/>
+        <table tableName="STAFF_LEAVE" domainObjectName="staff_leave"/>
+        <table tableName="STAFF_MAIN" domainObjectName="staff_main"/>
+        <table tableName="STAFF_PHOTO_URL" domainObjectName="staff_photo_url"/>
+        <table tableName="STAFF_RECORD" domainObjectName="staff_record"/>
+        <table tableName="STAFF_SHARE_OPTION" domainObjectName="staff_share_option"/>
+        <table tableName="STAFF_USER_DEFINED" domainObjectName="staff_user_defined"/>
+        <table tableName="STAFF_VALUE" domainObjectName="staff_value"/>
+        <table tableName="STAFF_VIEW" domainObjectName="staff_view"/>
+        <table tableName="SUPPLY_ACCFUSEC" domainObjectName="supply_accfusec"/>
+        <table tableName="TASK_MANAGE" domainObjectName="task_manage"/>
+        <table tableName="TASK_MANAGE_ADDRESS" domainObjectName="task_manage_address"/>
+        <table tableName="TASK_MANAGE_LOG" domainObjectName="task_manage_log"/>
+        <table tableName="TASK_MANAGE_MESSAGE" domainObjectName="task_manage_message"/>
+        <table tableName="TASK_RECORD_REF" domainObjectName="task_record_ref"/>
+        <table tableName="TRANSFER_POSITION" domainObjectName="transfer_position"/>
+        <table tableName="VOICE_URL" domainObjectName="voice_url"/>
+        <table tableName="WORK_OVERTIME" domainObjectName="work_overtime"/>
+        <table tableName="WORK_OVERTIME_HISTORY" domainObjectName="work_overtime_history"/>
+        <table tableName="WORK_OVERTIME_PLAN" domainObjectName="work_overtime_plan"/>
+        <table tableName="WORK_OVERTIME_PLAN_STAFF_REF" domainObjectName="work_overtime_plan_staff_ref"/>
+        <table tableName="YZ_POSITION" domainObjectName="yz_position"/>
+
+
+
+
+        <!-- enableCountByExample="false" enableUpdateByExample="false"
+        enableDeleteByExample="false" enableSelectByExample="false"
+        selectByExampleQueryId="false">  指定是否生成操作数据库对应的方法 -->
+    </context>
+</generatorConfiguration>
